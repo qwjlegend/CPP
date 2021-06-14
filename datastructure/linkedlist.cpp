@@ -89,15 +89,53 @@ void insertAtNth(){
 }
 
 
+
 //Delete a node 
+void deleteN(int n){
+    Node* temp1 = head;
+    if (n == 1){
+        head = temp1->next;
+        delete(temp1);
+        return;
+    }
+    for (int i = 0; i < n - 2; i ++){
+        temp1 = temp1->next;
+    }
+    Node* temp2 = temp1->next;
+    temp1->next = temp2->next;
+    delete temp2;
+}
+void deleteNth(){
+    insertNth(1,1);
+    insertNth(2,1);
+    insertNth(3,1);
+    insertNth(4,1);
+    insertNth(5,1);
+    print(head);
+    deleteN(3);
+    print(head);
+}
 
-
+//Reverse a linked list
+void reverse(){
+    Node *cur, *prev, *nxt;
+    cur = head;
+    prev = NULL;
+    while (cur != NULL){
+        nxt = cur->next;
+        cur->next = prev;
+        prev = cur;
+        cur = nxt;
+    }
+    head = prev;
+}
 
 int main(){
     // insertEmptyList();
     // nsertEndofList();
     // insertAtBegin(10);
     // insertAtNth();
+    deleteNth();
     return 0;
 }
 
