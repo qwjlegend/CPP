@@ -102,5 +102,10 @@ int main(){
     
     e1->Work();
     e2->Work();
+
+    Employee* emp[2] = {e1, e2};
+    for (int i = 0; i < 2; i++){
+        emp[i]->Work();
+    }
 }   
 
